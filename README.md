@@ -18,3 +18,7 @@ an OpenNMT tutorial
 - https://github.com/mynlp/stc
 
 Collecting the data, I referred to https://github.com/ace12358/twitter.
+
+### Nagoya University Conversation Corpus
+
+- https://mmsrv.ninjal.ac.jp/nucc/nucc.html
