@@ -1,5 +1,10 @@
+data/model/
+
 data/src*
 data/tgt*
+data/pred*
+
+data/twitter*
+data/stcj*
 
 data/nucc*
-data/twitter*

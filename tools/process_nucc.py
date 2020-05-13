@@ -7,6 +7,8 @@ nucc_path = '../data/nucc'
 for data_name in os.listdir(nucc_path):
     data_path = nucc_path + '/' + data_name
     with open(data_path, 'r') as f:
+        prev_code = ''
+        code = ''
         prev_text = ''
         text = ''
         for line in f:
@@ -22,13 +24,15 @@ for data_name in os.listdir(nucc_path):
                     text = re.sub(r'＜.*?＞', '', text)  # 7)
                     text = re.sub(r'【.*?】', '', text)  # 10)
                     text = text.replace('\t', ' ')
-                if prev_text and text:
+                if prev_text and text and prev_code != code:
                     text_pair = (prev_text, text)
                     pair_data.append(text_pair)
 
+                prev_code = code
                 prev_text = text
-                text = ''
                 line_code, line_text = line.split('：', maxsplit=1)
+                code = line_code
+                text = ''
             else:
                 line_text = line
 
