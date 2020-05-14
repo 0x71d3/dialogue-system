@@ -15,7 +15,9 @@ opt = parser.parse_args([
     '-model',
     model_path,
     '-src',
-    '../data/src-test.txt',
+    'dummy.txt',
+    '-output',
+    'dummy.txt',
     '-replace_unk',
     ])
 
@@ -23,8 +25,8 @@ ArgumentParser.validate_translate_opts(opt)
 translator = build_translator(opt, report_score=False)
 
 translator.translate(
-    src=[[]],
-    tgt=None,
+    src=[['']],
+    tgt=[['']],
     src_dir=opt.src_dir,
     batch_size=opt.batch_size,
     batch_type=opt.batch_type,
@@ -33,17 +35,16 @@ translator.translate(
     )
 
 print('system ready')
+print()
 src_input = input('> ')
 
 while src_input:
     result = jumanpp.analysis(src_input)
-
     src_shard = [[mrph.midasi for mrph in result.mrph_list()]]
-    tgt_shard = None
 
     _, all_predictions = translator.translate(
         src=src_shard,
-        tgt=tgt_shard,
+        tgt=[['']],
         src_dir=opt.src_dir,
         batch_size=opt.batch_size,
         batch_type=opt.batch_type,
