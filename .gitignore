@@ -1,3 +1,5 @@
+__pycache__/
+
 data/model/
 
 data/src*
@@ -8,3 +10,6 @@ data/twitter*
 data/stcj*
 
 data/nucc*
+
+twitter/.env
+twitter/sample*
