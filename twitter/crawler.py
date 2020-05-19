@@ -2,7 +2,7 @@ import html
 import json
 import sys
 import time
-
+from tqdm import tqdm
 from requests_oauthlib import OAuth1Session
 
 from settings import *
@@ -23,15 +23,15 @@ id_str_list = []
 for line in iter(sys.stdin.readline, ''):
     id_str_list.append(line.strip())
 
-for i in range(0, len(id_str_list), ID_STEP):
+for i in tqdm(range(0, len(id_str_list), ID_STEP)):
     params = {'id': ','.join(id_str_list[i:i+ID_STEP])}
     
     r = oauth.get(RESOURCE_URL, params=params)
-    statuses = json.loads(html.unescape(r.text))
+    statuses = json.loads(r.text)
 
     for status in statuses:
         id_str = status['id_str']
-        text = status['text'].replace('\n', BR_SUB)
+        text = ' '.join(html.unescape(status['text']).split())
         print(id_str, text, sep='\t')
 
     time.sleep(SLEEP_SECS)
