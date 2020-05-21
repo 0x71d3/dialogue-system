@@ -21,6 +21,7 @@ for src, tgt in tqdm(data):
     except:
         pass
 
+random.seed(0)
 random.shuffle(wakati_data)
 data_size = len(wakati_data)
 

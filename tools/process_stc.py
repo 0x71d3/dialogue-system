@@ -6,7 +6,7 @@ from pyknp import Juman
 jumanpp = Juman()
 
 id_str_pairs = []
-with open('twitter_id_str_data.tsv', encoding='utf-8') as f:
+with open('twitter_id_str_data.txt', encoding='utf-8') as f:
     for line in f:
         id_str_pair = tuple(line.strip().split())
         id_str_pairs.append(id_str_pair)
@@ -14,7 +14,7 @@ with open('twitter_id_str_data.tsv', encoding='utf-8') as f:
 reply = re.compile(r'^@[a-zA-Z0-9_]+ ')
 
 id_str2text = {}
-with open('twitter_text_data.tsv', encoding='utf-8') as f:
+with open('twitter_text_data.txt', encoding='utf-8') as f:
     for line in f:
         id_str, text = line.strip().split('\t')
         while reply.match(text):

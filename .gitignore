@@ -2,14 +2,14 @@ __pycache__/
 
 data/model/
 
+data/*.tsv
+
+data/nucc*
+data/stc*
+
 data/src*
 data/tgt*
 data/pred*
-
-data/twitter*
-data/stcj*
-
-data/nucc*
 
 twitter/.env
 twitter/sample*
