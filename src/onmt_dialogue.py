@@ -19,7 +19,7 @@ opt = parser.parse_args([
     '-output',
     'dummy.txt',
     '-replace_unk',
-    ])
+])
 
 ArgumentParser.validate_translate_opts(opt)
 translator = build_translator(opt, report_score=False)
@@ -32,7 +32,7 @@ translator.translate(
     batch_type=opt.batch_type,
     attn_debug=opt.attn_debug,
     align_debug=opt.align_debug
-    )
+)
 
 print('system ready')
 print()
@@ -50,7 +50,7 @@ while src_input:
         batch_type=opt.batch_type,
         attn_debug=opt.attn_debug,
         align_debug=opt.align_debug
-        )
+    )
 
     print(all_predictions[0][0].replace(' ', ''))
     print()
