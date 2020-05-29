@@ -2,17 +2,25 @@
 
 This repository contains a simple dialogue system for my research.
 
-It uses [OpenNMT](https://github.com/OpenNMT/OpenNMT-py).
+## Tools
 
-## Google Colab
+### OpenNMT
+
+- https://github.com/OpenNMT/OpenNMT-py
+
+### Google Colab
 
 an OpenNMT tutorial
 
-- https://github.com/Parkchanjun/OpenNMT-Colab-Tutorial
 - https://colab.research.google.com/drive/1Nkd9UFlDX4NhX_gVQwDS-77s2jV7zTqE
 
 ## Corpus
 
 ### NTCIR STC Japanese Task
 
+- http://ntcir12.noahlab.com.hk/japanese/stc-jpn.htm
 - https://github.com/mynlp/stc
+
+### BTSJ-Japanese Natural Conversation Corpus
+
+- https://ninjal-usamilab.info/lab/btsj_corpus/
