@@ -1,46 +1,33 @@
 import random
 import sys
-from tqdm import tqdm
-
-from pyknp import Juman
 
 with open(sys.argv[1], encoding='utf-8') as f:
-    data = [tuple(line.strip().split('\t')) for line in f]
-
-jumanpp = Juman()
-
-wakati_data = []
-for src, tgt in tqdm(data):
-    try:
-        result = jumanpp.analysis(src)
-        wakati_src = ' '.join(mrph.midasi for mrph in result.mrph_list())
-        result = jumanpp.analysis(tgt)
-        wakati_tgt = ' '.join(mrph.midasi for mrph in result.mrph_list())
-        wakati_pair = (wakati_src, wakati_tgt)
-        wakati_data.append(wakati_pair)
-    except:
-        pass
+    data = [line.strip().split('\t') for line in f]
 
 random.seed(0)
-random.shuffle(wakati_data)
-data_size = len(wakati_data)
+random.shuffle(data)
 
-# train_size = 10000
+data_size = len(data)
+
 val_size = 5000
 test_size = 5000
 
-test_data = wakati_data[:test_size]
+test = data[:test_size]
+val = data[test_size:test_size+val_size]
+train = data[test_size+val_size:]
+
 with open('src-test.txt', 'w', encoding='utf-8') as f:
-    f.write('\n'.join(src for src, tgt in test_data))
+    for src, tgt in test:
+        f.write(src + '\n')
 
-val_data = wakati_data[test_size:test_size+val_size]
-with open('src-val.txt', 'w', encoding='utf-8') as f:
-    f.write('\n'.join(src for src, tgt in val_data))
-with open('tgt-val.txt', 'w', encoding='utf-8') as f:
-    f.write('\n'.join(tgt for src, tgt in val_data))
+with open('src-val.txt', 'w', encoding='utf-8') as f, \
+        open('tgt-val.txt', 'w', encoding='utf-8') as g:
+    for src, tgt in val:
+        f.write(src + '\n')
+        g.write(tgt + '\n')
 
-train = wakati_data[test_size+val_size:]
-with open('src-train.txt', 'w', encoding='utf-8') as f:
-    f.write('\n'.join(src for src, tgt in train))
-with open('tgt-train.txt', 'w', encoding='utf-8') as f:
-    f.write('\n'.join(tgt for src, tgt in train))
+with open('src-train.txt', 'w', encoding='utf-8') as f, \
+        open('tgt-train.txt', 'w', encoding='utf-8') as g:
+    for src, tgt in train:
+        f.write(src + '\n')
+        g.write(tgt + '\n')
