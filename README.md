@@ -19,8 +19,11 @@ an OpenNMT tutorial
 ### NTCIR STC Japanese Task
 
 - http://ntcir12.noahlab.com.hk/japanese/stc-jpn.htm
-- https://github.com/mynlp/stc
 
 ### BTSJ-Japanese Natural Conversation Corpus
 
 - https://ninjal-usamilab.info/lab/btsj_corpus/
+
+### Nagoya University Conversation Corpus
+
+- https://mmsrv.ninjal.ac.jp/nucc/nucc.html

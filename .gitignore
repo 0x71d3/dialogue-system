@@ -4,19 +4,20 @@ data/model/
 
 data/*.tsv
 
-data/nucc*
 data/stc*
 
 data/src-*
 data/tgt-*
-data/pred.txt*
+data/pred.txt
 
 data/train.*
 data/valid.*
 data/test.*
 
-btsj/btsjcorpus_ver2020/
+btsj/btsj*
 btsj/tsvs/
+
+nucc/nucc*
 
 twitter/.env
 twitter/sample*
