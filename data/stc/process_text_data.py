@@ -28,5 +28,5 @@ for id_str_pair in id_str_pairs:
         text_pair = (id_str2text[id_str_pair[0]], id_str2text[id_str_pair[1]])
         text_pairs.append(text_pair)
 
-with open('../stc_data.tsv', 'w', encoding='utf-8') as f:
-    f.write('\n'.join('\t'.join(text_pair) for text_pair in text_pairs))
+for text_pair in text_pairs:
+    print(*text_pair, sep='\t')

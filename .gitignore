@@ -2,22 +2,18 @@ __pycache__/
 
 data/model/
 
+data/btsj/btsj*
+data/nucc/nucc*
+data/stc/*.bz2
+data/stc/*.txt
+
 data/*.tsv
-
-data/stc*
-
 data/src-*
 data/tgt-*
 data/pred.txt
-
 data/train.*
 data/valid.*
 data/test.*
-
-btsj/btsj*
-btsj/tsvs/
-
-nucc/nucc*
 
 twitter/.env
 twitter/sample*

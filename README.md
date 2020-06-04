@@ -1,12 +1,16 @@
-# Simple Dialogue System
+# Dialogue System
 
-This repository contains a simple dialogue system for my research.
+This repository contains a dialogue system for my research.
 
 ## Tools
 
 ### OpenNMT
 
 - https://github.com/OpenNMT/OpenNMT-py
+
+### Fairseq
+
+- https://github.com/pytorch/fairseq
 
 ### Google Colab
 
