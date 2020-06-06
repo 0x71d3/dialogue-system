@@ -1,8 +1,9 @@
 import random
 import sys
 
-with open(sys.argv[1], encoding='utf-8') as f:
-    data = [line.strip().split('\t') for line in f]
+data = []
+for line in iter(sys.stdin.readline, ''):
+    data.append(line.strip().split('\t'))
 
 random.seed(0)
 random.shuffle(data)
@@ -16,9 +17,11 @@ test = data[:test_size]
 val = data[test_size:test_size+val_size]
 train = data[test_size+val_size:]
 
-with open('src-test.txt', 'w', encoding='utf-8') as f:
+with open('src-test.txt', 'w', encoding='utf-8') as f, \
+        open('tgt-test.txt', 'w', encoding='utf-8') as g:
     for src, tgt in test:
         f.write(src + '\n')
+        g.write(tgt + '\n')
 
 with open('src-val.txt', 'w', encoding='utf-8') as f, \
         open('tgt-val.txt', 'w', encoding='utf-8') as g:
